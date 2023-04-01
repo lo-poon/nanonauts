@@ -52,6 +52,7 @@
             var cameraX = 0;
             var cameraY = 0;
             var gameFrameCounter = 0;
+            var bushXCoordinates = [550, 750, 1000, 1200];
  
             window.addEventListener('keydown',onKeyDown)
             window.addEventListener('keyup',onKeyUp)
@@ -119,9 +120,10 @@
                 NANONAUT_WIDTH, NANONAUT_HEIGHT);
 
                 //Draw the bush.
-                c.drawImage(bush1Image, 550, GROUND_Y - 100);
-                c.drawImage(bush1Image, 750, GROUND_Y - 90);
-            }    
+                for (var i=0; i<bushXCoordinates.length; i++){
+                    c.drawImage(bush1Image, bushXCoordinates[i] - cameraX, GROUND_Y - 100 - cameraY);
+                }
+            }     
             
             //PLAYER INPUT
             function onKeyDown(event){
